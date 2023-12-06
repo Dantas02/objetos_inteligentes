@@ -3,8 +3,8 @@
 
 #define sensor A0
 
-const char* ssid = "Dantass";
-const char* password = "Luna102030";
+const char* ssid = "<colocar_ssid>";
+const char* password = "<colocar_senha>";
 const char* mqtt_server = "test.mosquitto.org";
 const int mqttPort = 1883;
 const char* mqttUser = "";

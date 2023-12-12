@@ -25,8 +25,8 @@ unsigned long tempoSensor = millis();
 const int leituraMinima = 500;   // Leitura correspondente a 100% de umidade
 const int leituraMaxima = 1023;  // Leitura correspondente a 0% de umidade
 
-float Umidade;  // Adicionado
-float Porcentagem_Umidade;  // Adicionado
+float Umidade; 
+float Porcentagem_Umidade; 
 
 void setup_wifi() {
   delay(10);
@@ -93,7 +93,7 @@ void loop() {
     tempoSensor = millis();
   }
 
-  // Adicionado: Declare Porcentagem_Umidade aqui para ser usada no loop
+  // Declare a Umidade aqui para ser usada no loop
   if (Umidade > 800) {
     digitalWrite(Valvula, HIGH);
     delay(4000);
@@ -112,14 +112,14 @@ void Send_Sensor() {
   // Leitura do sensor
   Umidade = analogRead(sensor);
 
-  // Converte a leitura do sensor em porcentagem usando a função criada
+  // Converte a leitura do sensor em porcentagem
   Porcentagem_Umidade = map(Umidade, leituraMinima, leituraMaxima, 100, 0);
 
   Serial.print("Porcentagem da Umidade: ");
   Serial.print(Porcentagem_Umidade);
   Serial.println(F("%"));
 
-  // Ajuste: Formatar a porcentagem com zero casas decimais
+  // Formata a porcentagem com zero casas decimais
   sprintf(msg, "%.0f", Porcentagem_Umidade);
   client.publish("topico/umidade_solo", msg);
 }

@@ -21,7 +21,6 @@ int Valvula;
 
 unsigned long tempoSensor = millis();
 
-// Ajuste: Defina os limites para leitura do sensor
 const int leituraMinima = 500;   // Leitura correspondente a 100% de umidade
 const int leituraMaxima = 1023;  // Leitura correspondente a 0% de umidade
 
